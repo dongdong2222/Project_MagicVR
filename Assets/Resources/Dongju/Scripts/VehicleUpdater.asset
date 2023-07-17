@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VehicleUpdater
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 0a3887383baca4b46886ab8212296071,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 624eca68a10fe9e45aba903a40239237,
     type: 2}
   udonAssembly: 
   assemblyError: 
