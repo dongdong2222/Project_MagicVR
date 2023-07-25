@@ -137,6 +137,7 @@ public class LobbyManager : UdonSharpBehaviour
 
     public void spawnPlayers()
     {
+        //if (!Networking.LocalPlayer.isMaster) return; 
         // To do : Check the number of redTeamMembers equals the number of blueTeamMembers by using if-
 
         // Check how many players want to join in the game

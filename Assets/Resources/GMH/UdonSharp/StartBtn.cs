@@ -8,8 +8,7 @@ using VRC.Udon;
 public class StartBtn : UdonSharpBehaviour
 {
     [SerializeField] private LobbyManager lobbyManager;
-
-    public override void Interact()
+    public void BtnClick()
     {
         // Checking player who pressed button is master
         if (Networking.LocalPlayer.isMaster)
