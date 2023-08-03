@@ -8,12 +8,12 @@ public class GameManager : UdonSharpBehaviour
 {
     private GameObject vehicle;
     //get player api or id(int) and divide it into two teams
-    public VRCPlayerApi[] players;
-    public VRCPlayerApi[] redPlayers;
-    public VRCPlayerApi[] bluePlayers;
+    public int[] playerIds;
+    public int[] redPlayerIds;
+    public int[] bluePlayerIds;
     //red = -1 or blue = 1
-    public int winner = 0;
-    public GameObject[] playerObjects;
+    public int winnerTeam = 0;
+    public GameObject playerObject;
     public GameObject gameUI;
     public Vector3 winnerResultMap;
     public Vector3 loserResultMap;
@@ -21,8 +21,7 @@ public class GameManager : UdonSharpBehaviour
     private int gameState;
 
     public void EndGame(int winnerTeam) {
-        //dsfsdfsdf
-        winner = winnerTeam;
+        this.winnerTeam = winnerTeam;
         RemoveVehicle();
         RemovePlayer();
         RemoveUI();
@@ -34,31 +33,37 @@ public class GameManager : UdonSharpBehaviour
         Destroy(vehicle);
     }
     public void RemovePlayer() {
-        for(int i=0; i<playerObjects.Length; i++) {
-            Destroy(playerObjects[i]);
-        }
+        //for(int i=0; i<playerObjects.Length; i++) {
+        Destroy(playerObject);
+        //}
     }
     public void RemoveUI() {
+        //Timer도 같이 관리
         Destroy(gameUI);
     }
     public void RemoveScroll() {
         //Scroll Object or Class destroy
     }
     public void MoveToResultMap() {
-        foreach(VRCPlayerApi player in redPlayers){
-            if(winner == -1) {
-                player.TeleportTo(winnerResultMap, player.GetRotation());
-            }
-            else {
-                player.TeleportTo(loserResultMap, player.GetRotation());
+        VRCPlayerApi player = Networking.LocalPlayer;
+        foreach (int playerId in redPlayerIds) {
+            if(player.playerId == playerId) {
+                if(winnerTeam == -1) {
+                    player.TeleportTo(winnerResultMap, player.GetRotation());
+                }
+                else {
+                    player.TeleportTo(loserResultMap, player.GetRotation());
+                }
             }
         }
-        foreach(VRCPlayerApi player in bluePlayers){
-            if(winner == 1) {
-                player.TeleportTo(winnerResultMap, player.GetRotation());
-            }
-            else {
-                player.TeleportTo(loserResultMap, player.GetRotation());
+        foreach (int playerId in bluePlayerIds) {
+            if(player.playerId == playerId) {
+                if(winnerTeam == 1) {
+                    player.TeleportTo(winnerResultMap, player.GetRotation());
+                }
+                else {
+                    player.TeleportTo(loserResultMap, player.GetRotation());
+                }
             }
         }
     }
