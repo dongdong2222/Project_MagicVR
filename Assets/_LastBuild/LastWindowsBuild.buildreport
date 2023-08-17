@@ -1,0 +1,843 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!668709126 &-7356214718972456479
+BuiltAssetBundleInfoSet:
+  bundleInfos:
+  - bundleName: scene-standalonewindows64-samplescene.vrcw
+    bundleArchiveFile: 2
+    packagedFileIndices: 0000000001000000
+  - bundleName: VRMagicShooting
+    bundleArchiveFile: 5
+    packagedFileIndices: 04000000
+--- !u!641289076 &-5236293667291757151
+AudioBuildInfo:
+  m_IsAudioDisabled: 0
+  m_AudioClipCount: 0
+  m_AudioMixerCount: 0
+--- !u!1126 &-2665148978506376088
+PackedAssets:
+  m_File: 4
+  m_ShortPath: CAB-fdf29f0a581a50284bef9fc826b58c0e
+  m_Overhead: 4096
+  m_Contents:
+  - fileID: 1
+    classID: 142
+    packedSize: 104
+    offset: 4096
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: AssetBundle Object
+  - fileID: 2
+    classID: 290
+    packedSize: 112
+    offset: 4200
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: 'Built-in AssetBundleManifest: AssetBundleManifest'
+--- !u!1125 &1
+BuildReport:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LastWindowsBuild
+  m_Summary:
+    buildStartTime:
+      serializedVersion: 2
+      ticks: 638271810986499929
+    buildGUID: 00000000000000000000000000000000
+    platformName: Win64
+    platformGroupName: Standalone
+    options: 16
+    assetBundleOptions: 32
+    outputPath: C:/Users/Aripy/AppData/Local/Temp/DefaultCompany/VRMagicShooting/scene-standalonewindows64-samplescene.vrcw
+    crc: 1527017784
+    totalSize: 17449497
+    totalTimeTicks: 145311894
+    totalErrors: 1
+    totalWarnings: 0
+    buildType: 1
+    buildResult: 1
+  m_Files:
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/scene-standalonewindows64-samplescene.vrcw/BuildPlayer-SampleScene
+    role: Scene
+    id: 0
+    totalSize: 126948
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/scene-standalonewindows64-samplescene.vrcw/BuildPlayer-SampleScene.sharedAssets
+    role: SharedAssets
+    id: 1
+    totalSize: 21355876
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/scene-standalonewindows64-samplescene.vrcw
+    role: AssetBundle
+    id: 2
+    totalSize: 17445094
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/scene-standalonewindows64-samplescene.vrcw.manifest
+    role: AssetBundleTextManifest
+    id: 3
+    totalSize: 3178
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/VRMagicShooting/CAB-fdf29f0a581a50284bef9fc826b58c0e
+    role: ResourcesFile
+    id: 4
+    totalSize: 4312
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/VRMagicShooting
+    role: ManifestAssetBundle
+    id: 5
+    totalSize: 1055
+  - path: C:/Users/Aripy/Documents/GitHub/Project_MagicVR/VRMagicShooting.manifest
+    role: AssetBundleTextManifest
+    id: 6
+    totalSize: 170
+  m_BuildSteps:
+  - stepName: Build Asset Bundles
+    durationTicks: 145311894
+    depth: 0
+    messages: []
+  - stepName: Calculate asset bundles to be built
+    durationTicks: 48196
+    depth: 1
+    messages: []
+  - stepName: Compile scripts
+    durationTicks: 49090723
+    depth: 1
+    messages: []
+  - stepName: Build player
+    durationTicks: 49419163
+    depth: 1
+    messages: []
+  - stepName: Prepare assets for target platform
+    durationTicks: 1309430
+    depth: 2
+    messages: []
+  - stepName: Building scenes
+    durationTicks: 13955009
+    depth: 2
+    messages: []
+  - stepName: Building scene Assets/Scenes/SampleScene.unity
+    durationTicks: 13933623
+    depth: 3
+    messages:
+    - type: 0
+      content: 'Destroying assets is not permitted to avoid data loss.
+
+        If
+        you really want to remove an asset use DestroyImmediate (theObject, true);'
+  - stepName: Writing asset files
+    durationTicks: 1535692
+    depth: 2
+    messages: []
+  - stepName: Packaging assets - archive:/BuildPlayer-SampleScene/BuildPlayer-SampleScene.sharedAssets
+    durationTicks: 1479009
+    depth: 3
+    messages: []
+  - stepName: Creating compressed player package
+    durationTicks: 22576603
+    depth: 2
+    messages: []
+  - stepName: Postprocess built player
+    durationTicks: 34404
+    depth: 2
+    messages: []
+  m_Appendices:
+  - {fileID: -7356214718972456479}
+  - {fileID: 9047936012545027474}
+  - {fileID: 50088002229070149}
+  - {fileID: -5236293667291757151}
+  - {fileID: -2665148978506376088}
+--- !u!382020655 &50088002229070149
+PluginBuildInfo:
+  m_RuntimePlugins:
+  - Unity.Burst.Unsafe
+  - VRC.SDK3.Dynamics.PhysBone
+  - OVRPlugin
+  - YamlDotNet
+  - WatsonTcp
+  - System.Threading.Tasks.Extensions
+  - VRC.Udon.ClientBindings
+  - openvr_api
+  - portmidi
+  - VRC.Udon.VRCWrapperModules
+  - VRCSDK3
+  - VRC.Udon.VM
+  - Serilog
+  - nunit.framework
+  - SemanticVersioning
+  - librsync.net
+  - Google.Protobuf
+  - VRC.Udon.Common
+  - VRC.SDK3.Dynamics.Contact
+  - Collections.Pooled
+  - System.Collections.Immutable
+  - System.Numerics.Vectors
+  - System.Buffers
+  - VRC.Dynamics
+  - VRC.Udon.Wrapper
+  - Serilog.Sinks.File
+  - SDKBase-Legacy
+  - VRC.Udon.Security
+  - clipper_library
+  - Unity.Burst.Cecil.Mdb
+  - VRC.Collections
+  - VRCSDKBase
+  - System.Runtime.CompilerServices.Unsafe
+  - vrc_image_loader
+  - libvrc_image_loader
+  - Unity.Burst.Cecil
+  - Newtonsoft.Json
+  - libopenvr_api
+  - Unity.Burst.Cecil.Rocks
+  - Blake2Sharp
+  - System.Memory
+  - System.Text.Encoding.CodePages
+  - Unity.Burst.Cecil.Pdb
+  - VRCCore-Editor
+  - VRC.Utility
+  - AudioPluginOculusSpatializer
+  m_EditorPlugins:
+  - ICSharpCode.SharpZipLib
+  - VRCSDK3-Editor
+  - Microsoft.CodeAnalysis
+  - VRC.Udon.VRCTypeResolverModules
+  - AppleEventIntegration
+  - liblz4Plastic
+  - Unity.Plastic.Newtonsoft.Json
+  - unityplastic
+  - VRC.Udon.Compiler
+  - System.Reflection.Metadata
+  - Microsoft.CodeAnalysis.CSharp
+  - VRC.Udon.UAssembly
+  - vpm-core-lib
+  - VRC.Udon.Graph
+  - UnityEditor.VR
+  - 0Harmony
+  - VRC.SDK3.Dynamics.PhysBone.Editor
+  - VRCSDKBase-Editor
+  - VRC.SDK3.Dynamics.Contact.Editor
+  - VRC.Udon.VRCGraphModules
+  - log4netPlastic
+  - VRC.Udon.EditorBindings
+  - zlib64Plastic
+  - Unity.Plastic.Antlr3.Runtime
+  - Serilog.Sinks.Unity3D
+  - lz4x64Plastic
+--- !u!1126 &9047936012545027474
+PackedAssets:
+  m_File: 1
+  m_ShortPath: BuildPlayer-SampleScene.sharedAssets
+  m_Overhead: 120016
+  m_Contents:
+  - fileID: 1
+    classID: 150
+    packedSize: 109
+    offset: 121560
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: 
+  - fileID: 2
+    classID: 142
+    packedSize: 160
+    offset: 121672
+    sourceAssetGUID: 00000000000000000000000000000000
+    buildTimeAssetPath: 
+  - fileID: 3
+    classID: 21
+    packedSize: 1052
+    offset: 121832
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 4
+    classID: 21
+    packedSize: 252
+    offset: 122888
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 5
+    classID: 21
+    packedSize: 312
+    offset: 123144
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 6
+    classID: 21
+    packedSize: 1028
+    offset: 123456
+    sourceAssetGUID: 1d9bebb1bdae8a243808dd265feca1ea
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Materials/Canvas.mat
+  - fileID: 7
+    classID: 21
+    packedSize: 1036
+    offset: 124488
+    sourceAssetGUID: b8b30423f0707a145bd5b8c5780f28c7
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Materials/CanvasPreview.mat
+  - fileID: 8
+    classID: 21
+    packedSize: 1028
+    offset: 125528
+    sourceAssetGUID: e9667412ff4dac242b266d5e3da1d202
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Materials/Clear.mat
+  - fileID: 9
+    classID: 21
+    packedSize: 892
+    offset: 126560
+    sourceAssetGUID: e7f180e09a24f36488ead35be4c85ff6
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Materials/board.mat
+  - fileID: 10
+    classID: 21
+    packedSize: 888
+    offset: 127456
+    sourceAssetGUID: 7ec0cf5b90b555049ad0e9216e5608a7
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Materials/pen.mat
+  - fileID: 11
+    classID: 21
+    packedSize: 484
+    offset: 128344
+    sourceAssetGUID: 7cfcb1abb0b9a0a438138924556b0252
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/pens/Material/Brack.mat
+  - fileID: 12
+    classID: 28
+    packedSize: 5564
+    offset: 128832
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 13
+    classID: 28
+    packedSize: 5576
+    offset: 134400
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 14
+    classID: 28
+    packedSize: 796
+    offset: 139976
+    sourceAssetGUID: 2da2f5baea13f044e923f9f43f8ce7a4
+    buildTimeAssetPath: Assets/Resources/KSU/8.png
+  - fileID: 15
+    classID: 28
+    packedSize: 1036904
+    offset: 140776
+    sourceAssetGUID: 40b8c2969dc8090409b81648a6721669
+    buildTimeAssetPath: Assets/Resources/KSU/empty.png
+  - fileID: 16
+    classID: 28
+    packedSize: 16488
+    offset: 1177680
+    sourceAssetGUID: 6f7c1904529346e4bb24f689d3ebe248
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/handle.png
+  - fileID: 17
+    classID: 28
+    packedSize: 204904
+    offset: 1194168
+    sourceAssetGUID: 812788a68fe4ff54f93d1bdc8b46ef2a
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/slider.png
+  - fileID: 18
+    classID: 28
+    packedSize: 4204
+    offset: 1399072
+    sourceAssetGUID: 891b167f8bf49924baac5ce745bf9ada
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/UiCheckIn.png
+  - fileID: 19
+    classID: 28
+    packedSize: 76908
+    offset: 1403280
+    sourceAssetGUID: a30e471c0a2c0f3489fa2b4bc628f944
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/progressBar2.png
+  - fileID: 20
+    classID: 28
+    packedSize: 156
+    offset: 1480192
+    sourceAssetGUID: ce2bed03d805b4f4f82e4e201cd41f8e
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/pen.jpg
+  - fileID: 21
+    classID: 28
+    packedSize: 4208
+    offset: 1480352
+    sourceAssetGUID: f958f60334216fd46a3bbf64ea35dd10
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/UiCheckOutline.png
+  - fileID: 22
+    classID: 43
+    packedSize: 4828
+    offset: 1484560
+    sourceAssetGUID: 22a578e19fa852f41b61732fa9634703
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/fbx/board.fbx
+  - fileID: 23
+    classID: 43
+    packedSize: 35756
+    offset: 1489392
+    sourceAssetGUID: 8305eab155a9f7f44b1eb792a218d95a
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/fbx/ppen.fbx
+  - fileID: 24
+    classID: 43
+    packedSize: 29968
+    offset: 1525152
+    sourceAssetGUID: c3fcba489e337bc47b06c5a29197464b
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/fbx/inkpreview.fbx
+  - fileID: 25
+    classID: 48
+    packedSize: 23380
+    offset: 1555120
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 26
+    classID: 48
+    packedSize: 165480
+    offset: 1578504
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 27
+    classID: 48
+    packedSize: 13452
+    offset: 1743984
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 28
+    classID: 48
+    packedSize: 5120
+    offset: 1757440
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 29
+    classID: 48
+    packedSize: 4712
+    offset: 1762560
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 30
+    classID: 48
+    packedSize: 4456
+    offset: 1767272
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 31
+    classID: 48
+    packedSize: 10980
+    offset: 1771728
+    sourceAssetGUID: 5f8fef09682fab74fb7a29d783391edb
+    buildTimeAssetPath: Packages/com.vrchat.base/Runtime/VRCSDK/Sample Assets/Shaders/VRChat-Sprites-Default.shader
+  - fileID: 32
+    classID: 74
+    packedSize: 2456
+    offset: 1782712
+    sourceAssetGUID: b5ecc0296d3afb745897fdd07b5fb57c
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/clearBoardEnable.anim
+  - fileID: 33
+    classID: 84
+    packedSize: 84
+    offset: 1785168
+    sourceAssetGUID: 8eab4ff34062d0e40aaf1c980c9e2bd0
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/Canvas.renderTexture
+  - fileID: 34
+    classID: 84
+    packedSize: 92
+    offset: 1785256
+    sourceAssetGUID: bd0bade87bd99db4393d8c2a2a18e970
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/CanvasPreview.renderTexture
+  - fileID: 35
+    classID: 91
+    packedSize: 820
+    offset: 1785352
+    sourceAssetGUID: abeacf4012b38e344bfcdfaf33c8df3b
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Board/Clear.controller
+  - fileID: 36
+    classID: 115
+    packedSize: 100
+    offset: 119808
+    sourceAssetGUID: 661092b4961be7145bfbe56e1e62337b
+    buildTimeAssetPath: Packages/com.vrchat.worlds/Runtime/VRCSDK/Plugins/VRCSDK3.dll
+  - fileID: 37
+    classID: 115
+    packedSize: 96
+    offset: 119912
+    sourceAssetGUID: 4ecd63eff847044b68db9453ce219299
+    buildTimeAssetPath: Packages/com.vrchat.base/Runtime/VRCSDK/Plugins/VRCCore-Editor.dll
+  - fileID: 38
+    classID: 115
+    packedSize: 108
+    offset: 120008
+    sourceAssetGUID: 661092b4961be7145bfbe56e1e62337b
+    buildTimeAssetPath: Packages/com.vrchat.worlds/Runtime/VRCSDK/Plugins/VRCSDK3.dll
+  - fileID: 39
+    classID: 115
+    packedSize: 64
+    offset: 120120
+    sourceAssetGUID: 0a705fd57ffad234282aeab2576d9dc4
+    buildTimeAssetPath: Assets/Resources/KSU/IC.cs
+  - fileID: 40
+    classID: 115
+    packedSize: 96
+    offset: 120184
+    sourceAssetGUID: 0cd44c1031e13a943bb63640046fad76
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs
+  - fileID: 41
+    classID: 115
+    packedSize: 104
+    offset: 120280
+    sourceAssetGUID: 0fced643671a8cd43a9e37a4af5309ed
+    buildTimeAssetPath: Assets/Resources/KSU/convertTextureToSprite.cs
+  - fileID: 42
+    classID: 115
+    packedSize: 88
+    offset: 120384
+    sourceAssetGUID: 45115577ef41a5b4ca741ed302693907
+    buildTimeAssetPath: Packages/com.vrchat.worlds/Runtime/Udon/UdonBehaviour.cs
+  - fileID: 43
+    classID: 115
+    packedSize: 88
+    offset: 120472
+    sourceAssetGUID: 4e29b1a8efbd4b44bb3f3716e73f07ff
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/Button.cs
+  - fileID: 44
+    classID: 115
+    packedSize: 128
+    offset: 120560
+    sourceAssetGUID: 4f231c4fb786f3946a6b90b886c48677
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/EventSystem/InputModules/StandaloneInputModule.cs
+  - fileID: 45
+    classID: 115
+    packedSize: 80
+    offset: 120688
+    sourceAssetGUID: 5f7201a12d95ffc409449d95f23cf332
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/Text.cs
+  - fileID: 46
+    classID: 115
+    packedSize: 88
+    offset: 120768
+    sourceAssetGUID: 67db9e8f0e2ae9c40bc1e2b64352a6b4
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/Slider.cs
+  - fileID: 47
+    classID: 115
+    packedSize: 104
+    offset: 120856
+    sourceAssetGUID: 76c392e42b5098c458856cdf6ecaaaa1
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs
+  - fileID: 48
+    classID: 115
+    packedSize: 96
+    offset: 120960
+    sourceAssetGUID: 918083d8e7e25db4ca0bf105a499975e
+    buildTimeAssetPath: Packages/com.unity.barracuda/Barracuda/Runtime/Core/Internals/NNModelData.cs
+  - fileID: 49
+    classID: 115
+    packedSize: 128
+    offset: 121056
+    sourceAssetGUID: bf61d954ecb803046953c666facfb904
+    buildTimeAssetPath: Packages/com.vrchat.worlds/Runtime/Udon/ProgramSources/SerializedUdonProgramAsset.cs
+  - fileID: 50
+    classID: 115
+    packedSize: 88
+    offset: 121184
+    sourceAssetGUID: d56b7ac7bee314a29a9d00b13ccdb4f5
+    buildTimeAssetPath: Packages/com.unity.barracuda/Barracuda/Runtime/Core/Internals/NNModel.cs
+  - fileID: 51
+    classID: 115
+    packedSize: 104
+    offset: 121272
+    sourceAssetGUID: dc42784cf147c0c48a680349fa168899
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/GraphicRaycaster.cs
+  - fileID: 52
+    classID: 115
+    packedSize: 88
+    offset: 121376
+    sourceAssetGUID: fe87c0e1cc204ed48ad3b37840f39efc
+    buildTimeAssetPath: Packages/com.unity.ugui/Runtime/UI/Core/Image.cs
+  - fileID: 53
+    classID: 115
+    packedSize: 92
+    offset: 121464
+    sourceAssetGUID: 661092b4961be7145bfbe56e1e62337b
+    buildTimeAssetPath: Packages/com.vrchat.worlds/Runtime/VRCSDK/Plugins/VRCSDK3.dll
+  - fileID: 54
+    classID: 213
+    packedSize: 568
+    offset: 1786176
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 55
+    classID: 213
+    packedSize: 580
+    offset: 1786744
+    sourceAssetGUID: 0000000000000000f000000000000000
+    buildTimeAssetPath: Resources/unity_builtin_extra
+  - fileID: 56
+    classID: 213
+    packedSize: 460
+    offset: 1787328
+    sourceAssetGUID: 40b8c2969dc8090409b81648a6721669
+    buildTimeAssetPath: Assets/Resources/KSU/empty.png
+  - fileID: 57
+    classID: 213
+    packedSize: 644
+    offset: 1787792
+    sourceAssetGUID: 6f7c1904529346e4bb24f689d3ebe248
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/handle.png
+  - fileID: 58
+    classID: 213
+    packedSize: 460
+    offset: 1788440
+    sourceAssetGUID: 812788a68fe4ff54f93d1bdc8b46ef2a
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/slider.png
+  - fileID: 59
+    classID: 213
+    packedSize: 576
+    offset: 1788904
+    sourceAssetGUID: 891b167f8bf49924baac5ce745bf9ada
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/UiCheckIn.png
+  - fileID: 60
+    classID: 213
+    packedSize: 576
+    offset: 1789480
+    sourceAssetGUID: a30e471c0a2c0f3489fa2b4bc628f944
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/progressBar2.png
+  - fileID: 61
+    classID: 213
+    packedSize: 680
+    offset: 1790056
+    sourceAssetGUID: f958f60334216fd46a3bbf64ea35dd10
+    buildTimeAssetPath: Assets/!PerfabsPackages/DrawingBoard/Texture/UiCheckOutline.png
+  - fileID: 62
+    classID: 1
+    packedSize: 59
+    offset: 1790736
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 63
+    classID: 1
+    packedSize: 83
+    offset: 1790800
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 64
+    classID: 1
+    packedSize: 119
+    offset: 1790888
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 65
+    classID: 1
+    packedSize: 55
+    offset: 1791008
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 66
+    classID: 1
+    packedSize: 83
+    offset: 1791064
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 67
+    classID: 4
+    packedSize: 80
+    offset: 1791152
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 68
+    classID: 136
+    packedSize: 52
+    offset: 1791232
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 69
+    classID: 222
+    packedSize: 13
+    offset: 1791288
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 70
+    classID: 222
+    packedSize: 13
+    offset: 1791304
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 71
+    classID: 223
+    packedSize: 55
+    offset: 1791320
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 72
+    classID: 223
+    packedSize: 55
+    offset: 1791376
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 73
+    classID: 224
+    packedSize: 120
+    offset: 1791432
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 74
+    classID: 224
+    packedSize: 120
+    offset: 1791552
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 75
+    classID: 224
+    packedSize: 108
+    offset: 1791672
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 76
+    classID: 224
+    packedSize: 108
+    offset: 1791784
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 77
+    classID: 114
+    packedSize: 56756
+    offset: 1791896
+    sourceAssetGUID: 4c225dd2a6a45ce4eaedd6709a7a7ac8
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/39dab3a13cf03dd4e8e139336e8d7687.asset
+  - fileID: 78
+    classID: 114
+    packedSize: 135576
+    offset: 1848656
+    sourceAssetGUID: e3e807eb08a2ff84eb98819b1b6cfb1e
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/516d62d292deef045930874fe3bb6827.asset
+  - fileID: 79
+    classID: 114
+    packedSize: 71656
+    offset: 1984232
+    sourceAssetGUID: c2afede0fd752f54eb2bf3220c881e8f
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/8570eb4ad3fe9fb4db1b180fa0208fed.asset
+  - fileID: 80
+    classID: 114
+    packedSize: 12040
+    offset: 2055888
+    sourceAssetGUID: 1b28678b217ddf0468ae76f83d6820ae
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/911ec0a42d9d97147a56e65554108e7c.asset
+  - fileID: 81
+    classID: 114
+    packedSize: 72696
+    offset: 2067928
+    sourceAssetGUID: 7272d1fee4f827b45ad0e7c59397d3e0
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/9f9e0b16622069b4a9bb2d406406c2c5.asset
+  - fileID: 82
+    classID: 114
+    packedSize: 107008
+    offset: 2140624
+    sourceAssetGUID: 98ef0dfa52c70d44ba31e7f41a312520
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/b187171455255324089e67265cf0f794.asset
+  - fileID: 83
+    classID: 114
+    packedSize: 33088
+    offset: 2247632
+    sourceAssetGUID: bb1affded7a97ae4491348a3902a183a
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/c0a12a019a446a14694b7902b9875608.asset
+  - fileID: 84
+    classID: 114
+    packedSize: 18056
+    offset: 2280720
+    sourceAssetGUID: 992799d8db926d74e9ccc4a90e72b0b9
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/c47c49969eb858e45911a287910dfdd7.asset
+  - fileID: 85
+    classID: 114
+    packedSize: 17068
+    offset: 2298776
+    sourceAssetGUID: 34c34cabd7105394189e6c76f1c2427b
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/c8df303ceb45ae84f85a11591f741734.asset
+  - fileID: 86
+    classID: 114
+    packedSize: 12040
+    offset: 2315848
+    sourceAssetGUID: 77c90742417c98e4a923314ac9d85d04
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/db919bb7bd22e5c4eabbe74f9d7e038c.asset
+  - fileID: 87
+    classID: 114
+    packedSize: 11664
+    offset: 2327888
+    sourceAssetGUID: 78725889601a99d41ba0c67a39b80814
+    buildTimeAssetPath: Assets/SerializedUdonPrograms/f26f32b482a4be04ab9b0aae4747ec2c.asset
+  - fileID: 88
+    classID: 114
+    packedSize: 19006432
+    offset: 2339552
+    sourceAssetGUID: 31d92ba503590fa47baace433ecf1977
+    buildTimeAssetPath: Assets/Resources/KSU/simpleModel.onnx
+  - fileID: 89
+    classID: 114
+    packedSize: 56
+    offset: 21345984
+    sourceAssetGUID: 31d92ba503590fa47baace433ecf1977
+    buildTimeAssetPath: Assets/Resources/KSU/simpleModel.onnx
+  - fileID: 90
+    classID: 114
+    packedSize: 1924
+    offset: 21346040
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 91
+    classID: 114
+    packedSize: 140
+    offset: 21347968
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 92
+    classID: 114
+    packedSize: 140
+    offset: 21348112
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 93
+    classID: 114
+    packedSize: 924
+    offset: 21348256
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 94
+    classID: 114
+    packedSize: 924
+    offset: 21349184
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 95
+    classID: 114
+    packedSize: 44
+    offset: 21350112
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 96
+    classID: 114
+    packedSize: 924
+    offset: 21350160
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 97
+    classID: 114
+    packedSize: 76
+    offset: 21351088
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 98
+    classID: 114
+    packedSize: 36
+    offset: 21351168
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 99
+    classID: 114
+    packedSize: 2684
+    offset: 21351208
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 100
+    classID: 114
+    packedSize: 76
+    offset: 21353896
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 101
+    classID: 114
+    packedSize: 924
+    offset: 21353976
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
+  - fileID: 102
+    classID: 114
+    packedSize: 44
+    offset: 21354904
+    sourceAssetGUID: a36b0cacc1346f44d9462c9f3f6801aa
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/PlayerUI.prefab
+  - fileID: 103
+    classID: 114
+    packedSize: 924
+    offset: 21354952
+    sourceAssetGUID: 71737537c1bf0614b90de880b16eb036
+    buildTimeAssetPath: Assets/UdonSharp/PrefabBuild/Assets/Resources/KSU/Player.prefab
