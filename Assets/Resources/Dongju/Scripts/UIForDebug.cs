@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class UIForDebug : UdonSharpBehaviour
 {
     [SerializeField]
-    private EscortManager escortManager;
+    private VehicleData vehicleData;
 
     [SerializeField]
-    private Text escortGaugeText;
+    private Text value_isMaster;
     [SerializeField]
-    private Text masterCheckText;
+    private Text value_playerID;
 
     private VRCPlayerApi player;
     private void Start()
@@ -27,7 +27,7 @@ public class UIForDebug : UdonSharpBehaviour
 
     void UpdateText()
     {
-        escortGaugeText.text = "" + escortManager.EscortGauge;
-        masterCheckText.text = "" + player.isMaster;
+        value_isMaster.text = "" + player.isMaster;
+        value_playerID.text = "" + player.playerId;
     }
 }
