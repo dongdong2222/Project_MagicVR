@@ -6,13 +6,17 @@ using VRC.Udon;
 
 public class WandSystem : UdonSharpBehaviour
 {
+    //들고 있는가
     private bool _isHeld = false;
+    
+    //혹시 모를 trailRenderer
     public TrailRenderer trailRenderer;
     private int posTime = 0;
     private Vector3[] pos = new Vector3[8];
     private Vector3[] line = new Vector3[7];
     private float[] angle = new float[6];
     private bool drawMode = false;
+    public MagicThree magicThree;
 
     void Start()
     {
@@ -24,7 +28,7 @@ public class WandSystem : UdonSharpBehaviour
         Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
         _isHeld = true;
         drawMode = true;
-        transform.rotation = Networking.LocalPlayer.GetBoneRotation(HumanBodyBones.Chest);
+        transform.rotation = Networking.LocalPlayer.GetBoneRotation(HumanBodyBones.Head);
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "TrailTrue");
     }
 
@@ -54,15 +58,6 @@ public class WandSystem : UdonSharpBehaviour
         return new Vector3(end.x - start.x, end.y - start.y, end.z - start.z);
     }
 
-    /*public float GetAngle(Vector3 one, Vector3 two) {
-        return Mathf.Acos(
-            (one.x*two.x+one.y*two.y+one.z*two.z)
-            /
-            (Mathf.Sqrt(Mathf.Pow(one.x,2)+Mathf.Pow(one.y,2)+Mathf.Pow(one.z,2))
-            *Mathf.Sqrt(Mathf.Pow(two.x,2)+Mathf.Pow(two.y,2)+Mathf.Pow(two.z,2)))
-            );
-    }*/
-
     public override void OnPickupUseDown()
     {
         if(drawMode) {
@@ -81,7 +76,7 @@ public class WandSystem : UdonSharpBehaviour
             }
             //drawMode에서 벗어날 때로 옮길 것
             if(posTime == 3)  {
-                ClassifyMagic();
+                magicThree.ClassifyMagic(angle);
                 posTime = 0;
             }
             posTime++;
@@ -89,18 +84,7 @@ public class WandSystem : UdonSharpBehaviour
     }
 
     // posTime 수에 따라 Magic클래스를 호출하는 함수로 바뀔 예정
-    public void ClassifyMagic()
-    {
-        if(angle[0] > 90 && angle[0] < 180) {
-            if(angle[1] > 90 && angle[1] < 180) {
-                Debug.Log("Magic is classified: Thunder");
-            }
-            else if(angle[1] > 0 && angle[1] < 90) {
-                Debug.Log("Magic is classified: Triangle");
-            }
-        }
-        else return;
-    }
+    
 
     
     

@@ -13,9 +13,9 @@ public class PlayerSetting : UdonSharpBehaviour
     
     void Start()
     {
-        //players = new Player[30];
-        GameObject clientStatObject = VRCInstantiate(PlayerPrefab);
-        Networking.SetOwner(Networking.LocalPlayer, clientStatObject);
+        players = new Player[30];
+        //GameObject clientStatObject = VRCInstantiate(PlayerPrefab);
+        //Networking.SetOwner(Networking.LocalPlayer, clientStatObject);
         /*players[0] = GameObject.Find("Stat").GetComponent<Player>();
         players[0].stat = clientStatObject.GetComponent<PlayerStat>();
         players[0].player = Networking.LocalPlayer;*/

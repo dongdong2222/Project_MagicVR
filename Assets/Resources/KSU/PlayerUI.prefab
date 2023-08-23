@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 475303995452450067}
   - component: {fileID: 1638979469981243401}
   - component: {fileID: 3191513458373037299}
-  - component: {fileID: 1312117128708233054}
+  - component: {fileID: 4544674034784094506}
   - component: {fileID: -6848440256458135403}
   m_Layer: 5
   m_Name: PlayerUI
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1312117128708233054
+--- !u!114 &4544674034784094506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,7 +201,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: -6848440256458135403}
-  time: 0
 --- !u!114 &-6848440256458135403
 MonoBehaviour:
   m_ObjectHideFlags: 0
