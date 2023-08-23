@@ -2,40 +2,48 @@
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
+using UnityEngine.UI;
+using Unity.Collections;
 using VRC.Udon;
 using VRC.Udon.Common;
 public class ForPlayerTest : UdonSharpBehaviour
 {
-    public GameObject statPrefab;
-    public GameObject colliderPrefab;
+    public GameObject playerPrefab;
     public PlayerSetting playerManager;
-    public void Start()
+    public GameObject playerManagerTest;
+    
+    //게임 시작시 한번 실행되어야 함
+    public override void OnPickupUseDown()
     {
+        playerManagerTest = GameObject.Find("PlayerManagerTest");
+        Text testText = playerManagerTest.GetComponent<Text>();
+        testText.text = "";
+        testText.text = string.Concat(testText.text," pickup\n");
         VRCPlayerApi[] players = new VRCPlayerApi[30];
         VRCPlayerApi.GetPlayers(players);
-        //int i = 0;
+        int i = 0;
         playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerSetting>();
-        /*foreach(VRCPlayerApi player in players) {
-            if(player == null) continue;
+        foreach(VRCPlayerApi player in players) {
+            if(player == null) {
+                testText.text = string.Concat(testText.text, "null\n");
+                continue;
+            }
             else {
-                if(playerManager.players[i].player == null) {*/
-                    GameObject clientStatObject = VRCInstantiate(statPrefab);
-                    clientStatObject.SetActive(true);
-                    clientStatObject.name = "Stat";
-                    playerManager.players[0] = GameObject.Find("Stat").GetComponent<Player>();
-                    playerManager.players[0].stat = clientStatObject.GetComponent<PlayerStat>();
-                    playerManager.players[0].player = Networking.LocalPlayer;
-                    Networking.SetOwner(Networking.LocalPlayer, clientStatObject);
-                /*}
+                GameObject clientPlayerObject = VRCInstantiate(playerPrefab);
+                clientPlayerObject.SetActive(true);
+                clientPlayerObject.name = string.Concat("playerPrefab", i);
+                playerManager.players[i] = GameObject.Find(string.Concat("playerPrefab", i)).GetComponent<Player>();
+                playerManager.players[i].stat = clientPlayerObject.GetComponent<PlayerStat>();
+                playerManager.players[i].stat.Initialize();
+                playerManager.players[i].player = player;
+                Networking.SetOwner(Networking.LocalPlayer, clientPlayerObject);
+                testText.text = string.Concat(testText.text , "playerPrefab" , i , ": " , 
+                                            playerManager.players[i].player.displayName , ", HP :" , 
+                                            playerManager.players[i].stat.GetHp() , "\n");
             }
             i++;
             i %= 30;
             Debug.Log(player.displayName);
-        }*/
-        GameObject colliderObject = VRCInstantiate(colliderPrefab);
-        colliderObject.SetActive(true);
-        colliderObject.name = "Collider";
-        Networking.SetOwner(Networking.LocalPlayer, colliderObject);
-
+        }
     }
 }

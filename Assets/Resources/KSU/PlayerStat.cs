@@ -15,7 +15,9 @@ public class PlayerStat : UdonSharpBehaviour
     /*
         Variables for Player
     */
-    public VRCPlayerApi playerId;
+    public VRCPlayerApi player;
+    
+    //hp를 그 뭐시기 sync되게 property 이용해서 바꿔야 함
     [SerializeField] private float hp;
     private Text hpText;
     private float originHp = 100;
@@ -28,6 +30,10 @@ public class PlayerStat : UdonSharpBehaviour
     // Start is called before the first frame update
     void Start()
     {  
+        
+    }
+
+    public void Initialize() {
         SetOwner(LocalPlayer, gameObject);
         hp = originHp;
         hpText = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
@@ -77,5 +83,10 @@ public class PlayerStat : UdonSharpBehaviour
         //Time wait
         hp = originHp;
         //location move
+    }
+
+    public float GetHp()
+    {
+        return hp;
     }
 }

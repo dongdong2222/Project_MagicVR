@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5167282061824314200}
   - component: {fileID: 8746693157329136622}
   - component: {fileID: 475038456825364513}
-  - component: {fileID: 5030191206801241810}
+  - component: {fileID: 4507110917465110133}
   - component: {fileID: 4000463716152749571}
   - component: {fileID: 3165729876639064498}
   - component: {fileID: 4982404631938006467}
@@ -105,7 +105,7 @@ CapsuleCollider:
   m_Height: 1.6219878
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5030191206801241810
+--- !u!114 &4507110917465110133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,6 @@ MonoBehaviour:
       Data: 
   _udonSharpBackingUdonBehaviour: {fileID: 4000463716152749571}
   stat: {fileID: 0}
-  time: 0
 --- !u!114 &4000463716152749571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +178,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: playerId
+    - Name: player
       Entry: 6
       Data: 
   _udonSharpBackingUdonBehaviour: {fileID: -870244991088363094}
@@ -443,16 +442,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1312117128708233054, guid: 0714e935a25e3a844bcbc0a74863ef2e,
+    - target: {fileID: 4544674034784094506, guid: 0714e935a25e3a844bcbc0a74863ef2e,
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 1312117128708233054, guid: 0714e935a25e3a844bcbc0a74863ef2e,
+      objectReference: {fileID: 4544674034784094506, guid: 0714e935a25e3a844bcbc0a74863ef2e,
         type: 3}
     - target: {fileID: 6221376321215990112, guid: 0714e935a25e3a844bcbc0a74863ef2e,
         type: 3}
       propertyPath: m_Name
-      value: HpText
+      value: Text
       objectReference: {fileID: 0}
     - target: {fileID: 7818766955810797623, guid: 0714e935a25e3a844bcbc0a74863ef2e,
         type: 3}
@@ -460,7 +459,7 @@ PrefabInstance:
       value: PlayerUI
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4626584683416549181, guid: 0714e935a25e3a844bcbc0a74863ef2e, type: 3}
+    - {fileID: -6848440256458135403, guid: 0714e935a25e3a844bcbc0a74863ef2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0714e935a25e3a844bcbc0a74863ef2e, type: 3}
 --- !u!224 &1123145540525017144 stripped
 RectTransform:
