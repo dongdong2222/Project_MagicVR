@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: MagicWindow
+  m_Name: MagicThree
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 958d87446f0f9a843b795258e29b4f56,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 14e4e7813a9d06b4ba61f7bf632e312c,
     type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: 5b6089a7b53c90c4b9d7f917a598dfff, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 68ff993ffa3182245aa9301614099372, type: 3}
   scriptVersion: 2
   compiledVersion: 2
   behaviourSyncMode: 0
   hasInteractEvent: 0
-  scriptID: -1433494969915324332
+  scriptID: -6327348291540427721
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

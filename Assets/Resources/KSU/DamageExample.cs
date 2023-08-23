@@ -15,8 +15,7 @@ public class DamageExample : UdonSharpBehaviour
     public void Cast(PlayerStat playerStat) {
         //Check OffenseBuffs
         playerStat.MagicCast(defaultDamage);
-        //Create Magic Object will be here
-        
+        //Create Magic Object will be here 
     }
 
     private void OnTriggerEnter(Collider collision) {
@@ -27,7 +26,7 @@ public class DamageExample : UdonSharpBehaviour
     private PlayerStat FindStat(GameObject collision) {
         VRCPlayerApi localPlayer = Networking.LocalPlayer;
         GameObject playerObject = collision;
-        if(IsOwner(localPlayer, playerObject) && playerObject.GetComponent<Player>() != null){// && playerObject.CompareTag("Player")) {
+        if(IsOwner(localPlayer, playerObject) && playerObject.GetComponent<PlayerStat>() != null){// && playerObject.CompareTag("Player")) {
             Debug.Log("Owner");
             return playerObject.GetComponent<PlayerStat>();
         }
