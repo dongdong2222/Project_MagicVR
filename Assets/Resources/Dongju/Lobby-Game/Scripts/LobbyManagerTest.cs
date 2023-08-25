@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-[UdonBehaviourSyncMode(BehaviourSyncMode.None)]
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class LobbyManagerTest : UdonSharpBehaviour
 {
     [SerializeField] GameDataTest gameData;
@@ -15,7 +15,12 @@ public class LobbyManagerTest : UdonSharpBehaviour
         Debug.Log("GameStart");
         if (Networking.IsMaster) //to do with 끼잉: master만 버튼 누르게?
         {
-            gameManager.OnGameStart(gameData);
+            //SendCustomEvent(nameof(GameStartEvent));
+            gameManager.OnGameStart();
         }
+    }
+    public void GameStartEvent()
+    {
+        gameManager.OnGameStart();
     }
 }

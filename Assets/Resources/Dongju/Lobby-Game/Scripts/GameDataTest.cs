@@ -21,11 +21,14 @@ public class GameDataTest : UdonSharpBehaviour
     [SerializeField] private Transform redTeamStartPoint;
     public Transform RedTeamStartPoint { get { return redTeamStartPoint; } }
 
+    [SerializeField] private Transform blueTeamEndPoint;
+    public Transform BlueTeamEndPoint { get { return blueTeamEndPoint; } }
+    [SerializeField] private Transform redTeamEndPoint;
+    public Transform RedTeamEndPoint { get { return redTeamEndPoint; } }
+
+
     [UdonSynced] private int[] blueTeamIDs;
     [UdonSynced] private int[] redTeamIDs;
-
-
-
 
     [UdonSynced]private int blueTeamIDs_size;
     public int BlueTeamIDs_size { get { return blueTeamIDs_size; } }
@@ -42,7 +45,6 @@ public class GameDataTest : UdonSharpBehaviour
 
     public int GetPlayerID(int team, int index)
     {
-        Debug.Log("GetPlayerID");
         if (team == 0)
         {
             if (index >= blueTeamIDs_size)

@@ -14,6 +14,10 @@ public class LobbyUITest : UdonSharpBehaviour
     [SerializeField] private TextMeshProUGUI[] blueTeamTexts;
     [SerializeField] private TextMeshProUGUI[] redTeamTexts;
 
+    private void Update()
+    {
+        Debug.Log("UI update");
+    }
     private void Start()
     {
         UpdateUI();
