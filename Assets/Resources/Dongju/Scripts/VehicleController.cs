@@ -69,7 +69,7 @@ public class VehicleController : UdonSharpBehaviour
     bool CheckEscort()
     {
         int escortTeam = vehicle.EscortTeam;
-        if (escortTeam != (int)Team.None)
+        if (escortTeam != -1)
         {
             return true;
         }
@@ -87,9 +87,9 @@ public class VehicleController : UdonSharpBehaviour
     {
         int targetPoint = 0;
 
-        if (vehicle.EscortTeam == (int)Team.Red)
+        if (vehicle.EscortTeam ==1)
             targetPoint = Mathf.CeilToInt(vehicle.CurrentPoint);
-        else if (vehicle.EscortTeam == (int)Team.Blue)
+        else if (vehicle.EscortTeam == 0)
             targetPoint = Mathf.FloorToInt(vehicle.CurrentPoint);
         else
             Debug.Log("MoveVehicle Team None");
@@ -99,7 +99,7 @@ public class VehicleController : UdonSharpBehaviour
         transform.LookAt(vehicle.pathPoints[targetPoint].position);
 
         if (Vector3.Distance(transform.position, vehicle.pathPoints[targetPoint].position) < 0.001)
-            vehicle.CurrentPoint = (vehicle.EscortTeam == (int)Team.Red) ? vehicle.CurrentPoint + 1 : vehicle.CurrentPoint - 1;
+            vehicle.CurrentPoint = (vehicle.EscortTeam == 1) ? vehicle.CurrentPoint + 1 : vehicle.CurrentPoint - 1;
     }
 
     void UpdateIdle()

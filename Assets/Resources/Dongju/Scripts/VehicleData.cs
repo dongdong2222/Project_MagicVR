@@ -4,42 +4,44 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
+//Team
+//Blue: 0  Red: 1  None: -1
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Continuous)]
 public class VehicleData : UdonSharpBehaviour
 {
-
     //Point : 위치
-    [SerializeField] public Transform redTeamEndPoint;
     [SerializeField] public Transform blueTeamEndPoint;
+    [SerializeField] public Transform redTeamEndPoint;
     [SerializeField] public Transform[] pathPoints;
     [SerializeField] public int moveSpeed;
 
 
     // public method로
     //public int State; //sync. property
-    public int EscortTeam { get; private set; } //
-    public int RedTeamEscortCount { get; private set; } //UI sync
-    public int BlueTeamEscortCount { get; private set; } //UI sync
+    public int EscortTeam { get { return escortTeam; } } //
+    public int RedTeamEscortCount { get { return redTeamEscortCount; } } //UI sync
+    public int BlueTeamEscortCount { get { return blueTeamEscortCount; } } //UI sync
     public float CurrentPoint { get; set; }
 
-    private int redTeamEscortCount;
-    private int blueTeamEscortCount;
-    private int escortTeam;
+    private int redTeamEscortCount = 0;
+    private int blueTeamEscortCount = 0;
+    private int escortTeam = -1;
 
 
-    private float[] pathDistances;
+    private float[] p2pDistances;
     private float totalDistance;
 
     private void Start()
     {
-        pathDistances = new float[pathPoints.Length-1];
+        p2pDistances = new float[pathPoints.Length-1];
         totalDistance = 0f;
         for(int i=0; i < pathPoints.Length-1; i++)
         {
-            pathDistances[i] = Vector3.Distance(pathPoints[i].position, pathPoints[i + 1].position);
-            totalDistance += pathDistances[i];
+            p2pDistances[i] = Vector3.Distance(pathPoints[i].position, pathPoints[i + 1].position);
+            totalDistance += p2pDistances[i];
         }
-
+        transform.position = GameObject.Find("Path").transform.position;
         CurrentPoint = 2.5f;
     }
 
@@ -50,10 +52,10 @@ public class VehicleData : UdonSharpBehaviour
     public void AddEscortCount(int team)
     {
         //to do? : 최대 team 수 넘어가지 않도록
-        if (team == (int)Team.Red)
-            RedTeamEscortCount++;
+        if (team == 1)
+            redTeamEscortCount++;
         else
-            BlueTeamEscortCount++;
+            blueTeamEscortCount++;
 
         SetEscortTeam();
     }
@@ -61,10 +63,10 @@ public class VehicleData : UdonSharpBehaviour
     public void SubEscortCount(int team)
     {
         //to do? : -로 떨어지지 않도록
-        if (team == (int)Team.Red)
-            RedTeamEscortCount--;
+        if (team == 1)
+            redTeamEscortCount--;
         else
-            BlueTeamEscortCount--;
+            blueTeamEscortCount--;
         
         SetEscortTeam();
     }
@@ -73,19 +75,19 @@ public class VehicleData : UdonSharpBehaviour
     {
         //to do : add sub 할때 team 변경 계산
         if (RedTeamEscortCount > BlueTeamEscortCount)
-            EscortTeam = (int)Team.Red;
+            escortTeam = 1;
         else if (BlueTeamEscortCount > RedTeamEscortCount)
-            EscortTeam = (int)Team.Blue;
+            escortTeam = 0;
         else
-            EscortTeam = (int)Team.None;
+            escortTeam = -1;
 
     }
 
 
-    public float GetProgress()
+    public float GetVehicleProgress()
     {
         float progress = GetCurrentDistance() / totalDistance;
-        Debug.Log($"progress : {progress}");
+        //Debug.Log($"progress : {progress}");
         return GetCurrentDistance() / totalDistance;
     }
 
@@ -93,7 +95,7 @@ public class VehicleData : UdonSharpBehaviour
     {
         float distance = 0.0f;
         for(int i=0; i < Mathf.FloorToInt(CurrentPoint); i++)
-            distance += pathDistances[i];
+            distance += p2pDistances[i];
         distance += Vector3.Distance(gameObject.transform.position, pathPoints[Mathf.FloorToInt(CurrentPoint)].position);
         return distance;
     }

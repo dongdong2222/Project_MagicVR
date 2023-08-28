@@ -26,7 +26,7 @@ public class GameUI : UdonSharpBehaviour
 
     private void Update()// sync 된 정보만 들고오면 같은 정보보기 간으!
     {
-        progressBar.value = vehicle.GetProgress();
+        progressBar.value = vehicle.GetVehicleProgress();
         redTeamText.text = "Red : " + vehicle.RedTeamEscortCount;
         blueTeamText.text = "Blue : " + vehicle.BlueTeamEscortCount;
     }

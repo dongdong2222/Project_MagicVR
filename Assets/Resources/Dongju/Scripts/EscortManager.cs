@@ -14,12 +14,12 @@ public class EscortManager : UdonSharpBehaviour
     {
         base.OnPlayerCollisionEnter(player);
         Debug.Log("object Enter");
-        vehicle.AddEscortCount((int)Team.Red);
+        vehicle.AddEscortCount(1);
     }
     public override void OnPlayerTriggerExit(VRCPlayerApi player)
     {
         base.OnPlayerCollisionExit(player);
         Debug.Log("object Exit");
-        vehicle.SubEscortCount((int)Team.Red);
+        vehicle.SubEscortCount(1);
     }
 }
