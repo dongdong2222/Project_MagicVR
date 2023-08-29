@@ -215,8 +215,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 5881930775203915238}
-  redTeamEndPoint: {fileID: 0}
   blueTeamEndPoint: {fileID: 0}
+  redTeamEndPoint: {fileID: 0}
   pathPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 5881930775203915240}
-  vehicle: {fileID: 5881930775203915239}
+  vehicleData: {fileID: 5881930775203915239}
 --- !u!114 &5881930775203915240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5881930775292413767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.364, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5881930775203915243}
@@ -357,8 +357,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.77700305
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.5904626
+  m_Center: {x: 0, y: 0.8134595, z: 0}
 --- !u!114 &5881930775292413765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 5881930775292413764}
-  vehicle: {fileID: 5881930775203915239}
+  vehicleData: {fileID: 5881930775203915239}
 --- !u!114 &5881930775292413764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   SynchronizePosition: 0
   AllowCollisionOwnershipTransfer: 0
   Reliable: 0
-  _syncMethod: 2
+  _syncMethod: 1
   serializedProgramAsset: {fileID: 11400000, guid: 10008cb2296475846a7aabf33de696a8,
     type: 2}
   programSource: {fileID: 11400000, guid: f9b40c81472ecbf459e21091e1a71b63, type: 2}

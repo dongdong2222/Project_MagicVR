@@ -22,12 +22,14 @@ public class VehicleData : UdonSharpBehaviour
     public int EscortTeam { get { return escortTeam; } } //
     public int RedTeamEscortCount { get { return redTeamEscortCount; } } //UI sync
     public int BlueTeamEscortCount { get { return blueTeamEscortCount; } } //UI sync
+    public Transform BlueTeamEndPoint { get { return blueTeamEndPoint; } }
+    public Transform RedTeamEndPoint { get { return redTeamEndPoint; } }
     public float CurrentPoint { get; set; }
+    public int isBlocked { get; set; } = 0;
 
-    private int redTeamEscortCount = 0;
-    private int blueTeamEscortCount = 0;
+    [UdonSynced] private int redTeamEscortCount = 0;
+    [UdonSynced] private int blueTeamEscortCount = 0;
     private int escortTeam = -1;
-
 
     private float[] p2pDistances;
     private float totalDistance;
@@ -41,6 +43,7 @@ public class VehicleData : UdonSharpBehaviour
             p2pDistances[i] = Vector3.Distance(pathPoints[i].position, pathPoints[i + 1].position);
             totalDistance += p2pDistances[i];
         }
+        //to do : path의 정가운데로 init하기
         transform.position = GameObject.Find("Path").transform.position;
         CurrentPoint = 2.5f;
     }

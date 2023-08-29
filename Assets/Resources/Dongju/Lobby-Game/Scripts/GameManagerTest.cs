@@ -89,7 +89,7 @@ public class GameManagerTest : UdonSharpBehaviour
         //Debug.Log($"timerflag : ");
         if (timerflag)
         {
-            Debug.Log($"timer : {timer}");
+            //Debug.Log($"timer : {timer}");
             timer -= Time.deltaTime;
             if (timer < 0)
             {
