@@ -13,6 +13,8 @@ public class UIForDebug : UdonSharpBehaviour
     private Text value_isMaster;
     [SerializeField]
     private Text value_playerID;
+    [SerializeField]
+    private Text value_isBlocked;
 
     private VRCPlayerApi player;
     private void Start()
@@ -29,5 +31,6 @@ public class UIForDebug : UdonSharpBehaviour
     {
         value_isMaster.text = "" + player.isMaster;
         value_playerID.text = "" + player.playerId;
+        //value_isBlocked.text = "" + vehicleData.IsBlocked;
     }
 }

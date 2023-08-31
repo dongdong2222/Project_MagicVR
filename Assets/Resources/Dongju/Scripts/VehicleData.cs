@@ -25,11 +25,20 @@ public class VehicleData : UdonSharpBehaviour
     public Transform BlueTeamEndPoint { get { return blueTeamEndPoint; } }
     public Transform RedTeamEndPoint { get { return redTeamEndPoint; } }
     public float CurrentPoint { get; set; }
-    public int isBlocked { get; set; } = 0;
+    public bool IsBlocked { 
+        get //함부로 갔다 쓰면 안댐!!
+        {
+            bool temp = isBlocked;
+            isBlocked = false;
+            return temp;
+        } 
+        set { isBlocked = value; }
+    }
 
     [UdonSynced] private int redTeamEscortCount = 0;
     [UdonSynced] private int blueTeamEscortCount = 0;
     private int escortTeam = -1;
+    private bool isBlocked = false;
 
     private float[] p2pDistances;
     private float totalDistance;

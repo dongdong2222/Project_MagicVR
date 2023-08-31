@@ -107,7 +107,7 @@ public class GameDataTest : UdonSharpBehaviour
         if (team == 0)
         {
             int index = Array.IndexOf<int>(blueTeamIDs, id);
-            Debug.Log($"index is {index}");
+            //Debug.Log($"index is {index}");
             if (index == -1)
                 return;
             if (!Networking.IsOwner(Networking.LocalPlayer, gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject); }
@@ -121,7 +121,7 @@ public class GameDataTest : UdonSharpBehaviour
         else if (team == 1)
         {
             int index = Array.IndexOf<int>(redTeamIDs, id);
-            Debug.Log($"index is {index}");
+            //Debug.Log($"index is {index}");
             if (index == -1)
                 return;
             if (!Networking.IsOwner(Networking.LocalPlayer, gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject); }

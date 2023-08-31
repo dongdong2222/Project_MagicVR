@@ -48,7 +48,7 @@ public class VehicleController : UdonSharpBehaviour
 
     bool CheckBlock()
     {
-        if (vehicleData.isBlocked > 0)
+        if (vehicleData.IsBlocked)
             return true;
         return false;
     }
@@ -56,6 +56,7 @@ public class VehicleController : UdonSharpBehaviour
     void UpdateBlock()
     {
         Debug.Log("State : Block");
+        
     }
 
     bool CheckEscort()

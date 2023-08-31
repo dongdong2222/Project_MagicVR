@@ -20,7 +20,6 @@ public class LobbyUITest : UdonSharpBehaviour
     }
     public void UpdateUI()
     {
-        Debug.Log("UpdateUI");
         for(int i=0; i< blueTeamTexts.Length; i++)
         {
             if (gameData.GetPlayerID(0, i) != -1)

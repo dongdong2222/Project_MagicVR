@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: PathPoint
+  m_Name: BlockObject
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 55b546d949bd5d14bb78f4dbbd26a7c2,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: a12bfbac17d4e6b4a9c76c896100f328,
     type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: c3fbea7f082612c4dbcd0b86dca9f6b7, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: b24fe27381a134b43b421c39aa41e9e6, type: 3}
   scriptVersion: 2
   compiledVersion: 2
-  behaviourSyncMode: 0
+  behaviourSyncMode: 1
   hasInteractEvent: 0
-  scriptID: 1201666562601947973
+  scriptID: 7446175737078742621
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
