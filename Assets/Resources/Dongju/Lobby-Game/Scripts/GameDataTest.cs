@@ -21,10 +21,10 @@ public class GameDataTest : UdonSharpBehaviour
     [SerializeField] private Transform redTeamStartPoint;
     public Transform RedTeamStartPoint { get { return redTeamStartPoint; } }
 
-    [SerializeField] private Transform blueTeamEndPoint;
-    public Transform BlueTeamEndPoint { get { return blueTeamEndPoint; } }
-    [SerializeField] private Transform redTeamEndPoint;
-    public Transform RedTeamEndPoint { get { return redTeamEndPoint; } }
+    [SerializeField] private Transform winnerTeamEndPoint;
+    public Transform WinnerTeamEndPoint { get { return winnerTeamEndPoint; } }
+    [SerializeField] private Transform loserTeamEndPoint;
+    public Transform LoserTeamEndPoint { get { return loserTeamEndPoint; } }
 
 
     [UdonSynced] private int[] blueTeamIDs;
@@ -34,6 +34,8 @@ public class GameDataTest : UdonSharpBehaviour
     public int BlueTeamIDs_size { get { return blueTeamIDs_size; } }
     [UdonSynced]private int redTeamIDs_size;
     public int RedTeamIDs_size { get { return redTeamIDs_size; } }
+    [UdonSynced] private int WinnerTeam = -1;
+
 
     private void Start()
     {
@@ -138,6 +140,11 @@ public class GameDataTest : UdonSharpBehaviour
         OnDeserialization();
     }
 
+    public void SetWinner(int team)
+    {
+        WinnerTeam = team;
+        OnDeserialization();
+    }
 
     public override void OnDeserialization()
     {

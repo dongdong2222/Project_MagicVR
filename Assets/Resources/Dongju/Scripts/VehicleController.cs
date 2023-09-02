@@ -7,14 +7,16 @@ using VRC.Udon;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Continuous)]
 public class VehicleController : UdonSharpBehaviour
 {
-    [SerializeField]
-    VehicleData vehicleData;
+    [SerializeField] VehicleData vehicleData;
+    [SerializeField] private GameManagerTest gameManager;
+
 
     private void Update()
     {
-        if (CheckEnd())
+        int winner = -1;
+        if (CheckEnd(out winner))
         {
-            UpdateEnd();
+            UpdateEnd(winner);
             return;
         }
         if (CheckBlock())
@@ -30,20 +32,27 @@ public class VehicleController : UdonSharpBehaviour
 
         UpdateIdle();
     }
-    bool CheckEnd()
+    bool CheckEnd(out int winner)
     {
-        if (Vector3.Distance(gameObject.transform.position, vehicleData.RedTeamEndPoint.position) < 0.001 ||
-            Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.001)
+        if (Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.001)
         {
+            winner = 0;
             return true;
         }
+        else if (Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.001)
+        {
+            winner = 1;
+            return true;
+        }
+        winner = -1;
         return false;
     }
 
-    void UpdateEnd()
+    void UpdateEnd(int winner)
     {
         //GameManager.End(Team.Red);
         Debug.Log("State : End");
+        gameManager.OnGameEnd(winner);
     }
 
     bool CheckBlock()

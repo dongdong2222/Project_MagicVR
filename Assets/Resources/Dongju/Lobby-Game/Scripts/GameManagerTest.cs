@@ -29,8 +29,9 @@ public class GameManagerTest : UdonSharpBehaviour
             SafeBoundary[i].Open();
     }
 
-    public void OnGameEnd()
+    public void OnGameEnd(int winner)
     {
+        gameData.SetWinner(winner);
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(SpawnPlayersToEnd));
     }
 
@@ -70,12 +71,12 @@ public class GameManagerTest : UdonSharpBehaviour
     }
     public void SpawnPlayersToEnd()
     {
-        int id = Networking.LocalPlayer.playerId;
-        int team = gameData.GetPlayerTeam(id);
-        if (team == 0)
-            VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.BlueTeamEndPoint.position, gameData.BlueTeamEndPoint.rotation);
-        else
-            VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.RedTeamEndPoint.position, gameData.RedTeamEndPoint.rotation);
+        //int id = Networking.LocalPlayer.playerId;
+        //int team = gameData.GetPlayerTeam(id);
+        //if (team == 0)
+        //    VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.BlueTeamEndPoint.position, gameData.BlueTeamEndPoint.rotation);
+        //else
+        //    VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.RedTeamEndPoint.position, gameData.RedTeamEndPoint.rotation);
     }
 
     private void SetStartTime()
