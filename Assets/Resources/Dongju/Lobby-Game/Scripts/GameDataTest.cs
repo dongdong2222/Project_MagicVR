@@ -11,7 +11,7 @@ public class GameDataTest : UdonSharpBehaviour
 {
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject playerUIPrefab;
-    [SerializeField] private GameObject vehicle;
+    [SerializeField] public GameObject vehicle;
     [SerializeField] private GameObject blockPrefab;
 
     [SerializeField] private GameObject[] UIList;

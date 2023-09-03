@@ -34,13 +34,15 @@ public class VehicleController : UdonSharpBehaviour
     }
     bool CheckEnd(out int winner)
     {
-        if (Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.001)
+        if (Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.01)
         {
+            Debug.Log("CheckEnd win blue");
             winner = 0;
             return true;
         }
-        else if (Vector3.Distance(gameObject.transform.position, vehicleData.BlueTeamEndPoint.position) < 0.001)
+        else if (Vector3.Distance(gameObject.transform.position, vehicleData.RedTeamEndPoint.position) < 0.01)
         {
+            Debug.Log("CheckEnd win red");
             winner = 1;
             return true;
         }
@@ -53,6 +55,8 @@ public class VehicleController : UdonSharpBehaviour
         //GameManager.End(Team.Red);
         Debug.Log("State : End");
         gameManager.OnGameEnd(winner);
+        //to do : object pool로 없애기
+        gameObject.transform.position = GameObject.Find("Storage").transform.position;
     }
 
     bool CheckBlock()
@@ -100,7 +104,7 @@ public class VehicleController : UdonSharpBehaviour
         //to do : 팀 변경시 뒤돌기 안하도록, lerp하게 회전하도록
         transform.LookAt(vehicleData.pathPoints[targetPoint].position);
 
-        if (Vector3.Distance(transform.position, vehicleData.pathPoints[targetPoint].position) < 0.001)
+        if (Vector3.Distance(transform.position, vehicleData.pathPoints[targetPoint].position) < 0.001 && targetPoint > 0 && targetPoint < vehicleData.pathPoints.Length - 1)
             vehicleData.CurrentPoint = (vehicleData.EscortTeam == 1) ? vehicleData.CurrentPoint + 1 : vehicleData.CurrentPoint - 1;
     }
 

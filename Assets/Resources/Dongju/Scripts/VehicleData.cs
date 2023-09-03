@@ -11,8 +11,8 @@ using VRC.Udon;
 public class VehicleData : UdonSharpBehaviour
 {
     //Point : 위치
-    [SerializeField] public Transform blueTeamEndPoint;
-    [SerializeField] public Transform redTeamEndPoint;
+    //[SerializeField] public Transform blueTeamEndPoint;
+    //[SerializeField] public Transform redTeamEndPoint;
     [SerializeField] public Transform[] pathPoints;
     [SerializeField] public int moveSpeed;
 
@@ -22,8 +22,8 @@ public class VehicleData : UdonSharpBehaviour
     public int EscortTeam { get { return escortTeam; } } //
     public int RedTeamEscortCount { get { return redTeamEscortCount; } } //UI sync
     public int BlueTeamEscortCount { get { return blueTeamEscortCount; } } //UI sync
-    public Transform BlueTeamEndPoint { get { return blueTeamEndPoint; } }
-    public Transform RedTeamEndPoint { get { return redTeamEndPoint; } }
+    public Transform BlueTeamEndPoint { get { return pathPoints[0]; } }
+    public Transform RedTeamEndPoint { get { return pathPoints[pathPoints.Length - 1]; } }
     public float CurrentPoint { get; set; }
     public bool IsBlocked { 
         get //함부로 갔다 쓰면 안댐!!
@@ -43,7 +43,7 @@ public class VehicleData : UdonSharpBehaviour
     private float[] p2pDistances;
     private float totalDistance;
 
-    private void Start()
+    public void Init()
     {
         p2pDistances = new float[pathPoints.Length-1];
         totalDistance = 0f;

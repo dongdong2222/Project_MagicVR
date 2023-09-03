@@ -19,6 +19,7 @@ public class GameManagerTest : UdonSharpBehaviour
         //SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner,  nameof(SetStartTime));
         //SpawnPlayersToStart();
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(SpawnPlayersToStart));
+        gameData.vehicle.GetComponent<VehicleData>().Init();
         SetStartTime();
     }
 
@@ -31,6 +32,7 @@ public class GameManagerTest : UdonSharpBehaviour
 
     public void OnGameEnd(int winner)
     {
+        Debug.Log($"OnGameEnd : winner is {winner}");
         gameData.WinnerTeam = winner;
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(SpawnPlayersToEnd));
     }
