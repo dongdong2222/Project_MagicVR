@@ -31,7 +31,7 @@ public class GameManagerTest : UdonSharpBehaviour
 
     public void OnGameEnd(int winner)
     {
-        gameData.SetWinner(winner);
+        gameData.WinnerTeam = winner;
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(SpawnPlayersToEnd));
     }
 
@@ -55,9 +55,10 @@ public class GameManagerTest : UdonSharpBehaviour
         int team = gameData.GetPlayerTeam(id);
         if (team == 0)
             VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.BlueTeamStartPoint.position, gameData.BlueTeamStartPoint.rotation);
-        else
+        else if (team == 1)
             VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.RedTeamStartPoint.position, gameData.RedTeamStartPoint.rotation);
-
+        else
+            Debug.Log("No Team");
 
         //for (int i = 0; i < gameData.BlueTeamIDs_size; i++)
         //{
@@ -71,6 +72,19 @@ public class GameManagerTest : UdonSharpBehaviour
     }
     public void SpawnPlayersToEnd()
     {
+        int id = Networking.LocalPlayer.playerId;
+        int team = gameData.GetPlayerTeam(id);
+
+        if (team == gameData.WinnerTeam)
+        {
+            VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.WinnerTeamEndPoint.position, gameData.WinnerTeamEndPoint.rotation);
+        }
+        else if (team == Mathf.Abs(gameData.WinnerTeam-1))
+        {
+            VRCPlayerApi.GetPlayerById(id).TeleportTo(gameData.LoserTeamEndPoint.position, gameData.LoserTeamEndPoint.rotation);
+        }
+        else
+            Debug.Log("No Team");
         //int id = Networking.LocalPlayer.playerId;
         //int team = gameData.GetPlayerTeam(id);
         //if (team == 0)

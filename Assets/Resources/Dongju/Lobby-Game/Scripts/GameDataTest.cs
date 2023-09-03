@@ -34,7 +34,17 @@ public class GameDataTest : UdonSharpBehaviour
     public int BlueTeamIDs_size { get { return blueTeamIDs_size; } }
     [UdonSynced]private int redTeamIDs_size;
     public int RedTeamIDs_size { get { return redTeamIDs_size; } }
-    [UdonSynced] private int WinnerTeam = -1;
+    [UdonSynced] private int winnerTeam = -1;
+    public int WinnerTeam { 
+        get { return winnerTeam; } 
+        set
+        {
+            winnerTeam = value;
+            RequestSerialization();
+
+            OnDeserialization();
+        }
+    }
 
 
     private void Start()
@@ -137,12 +147,6 @@ public class GameDataTest : UdonSharpBehaviour
         else
             Debug.Log("Wrong Team info");
 
-        OnDeserialization();
-    }
-
-    public void SetWinner(int team)
-    {
-        WinnerTeam = team;
         OnDeserialization();
     }
 
