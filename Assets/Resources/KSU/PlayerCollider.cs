@@ -4,9 +4,12 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class PlayerCollider : UdonSharpBehaviour
 {
-
+    public VRCPlayerApi player;
+    [UdonSynced] public int playerId;
+    
     void Start()
     {
         
@@ -19,11 +22,22 @@ public class PlayerCollider : UdonSharpBehaviour
 
     public void SetCollider() 
     {
-        VRCPlayerApi localPlayer = Networking.LocalPlayer;
-        Vector3 position = localPlayer.GetPosition();
-        if(localPlayer != null) {
-            gameObject.GetComponent<CapsuleCollider>().center = new Vector3(position.x, localPlayer.GetBonePosition(HumanBodyBones.Head).y/2.0f * 1.2f, position.z);
-            gameObject.GetComponent<CapsuleCollider>().height = localPlayer.GetBonePosition(HumanBodyBones.Head).y * 1.2f;
+        if(player != null) {
+            Vector3 position = player.GetPosition();
+            gameObject.GetComponent<CapsuleCollider>().center = new Vector3(position.x, player.GetBonePosition(HumanBodyBones.Head).y/2.0f * 1.2f, position.z);
+            gameObject.GetComponent<CapsuleCollider>().height = player.GetBonePosition(HumanBodyBones.Head).y * 1.2f;
         }
+    }
+
+    public void SetPlayer(int playerId)
+    {
+        this.playerId = playerId;
+        RequestSerialization();
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
+    }
+
+    public void GetPlayer()
+    {
+        this.player = VRCPlayerApi.GetPlayerById(playerId);
     }
 }

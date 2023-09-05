@@ -9,6 +9,7 @@ using VRC.Udon;
 using UdonSharp;
 
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 //Utilities.isValid 쓸것
 public class PlayerStat : UdonSharpBehaviour
 {
@@ -16,10 +17,10 @@ public class PlayerStat : UdonSharpBehaviour
         Variables for Player
     */
     public VRCPlayerApi player;
+    [UdonSynced] public int playerId;
     
-    //hp를 그 뭐시기 sync되게 property 이용해서 바꿔야 함
-    [SerializeField] private float hp;
-    private Text hpText;
+    [SerializeField] [UdonSynced] private float hp;
+    [SerializeField] private Text hpText;
     private float originHp = 100;
     [SerializeField] private float mp;
     [SerializeField] private int myTeam;
@@ -34,24 +35,28 @@ public class PlayerStat : UdonSharpBehaviour
     }
 
     public void Initialize() {
-        SetOwner(LocalPlayer, gameObject);
+        if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);};
         hp = originHp;
-        hpText = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        //SetOwner를 켰을때 한명만 분배되는
+        RequestSerialization();
     }
 
     // Update is called once per frame
     void Update()
     {
-        hpText.text = hp.ToString();
+        if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);};
+        if(Networking.LocalPlayer.playerId == playerId) hpText.text = hp.ToString();
     }
 
     private void GetDamage(float damage) 
     {
-        if(hp > damage) {
+        if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);}
+        if(hp > damage && Networking.LocalPlayer == player) {
             hp -= damage;
+            RequestSerialization();
         }
         else {
-            Respawn();
+            SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(Respawn));
         }
     }
 
@@ -83,10 +88,23 @@ public class PlayerStat : UdonSharpBehaviour
         //Time wait
         hp = originHp;
         //location move
+        player.TeleportTo(GameObject.Find("TestRespawnPoint").transform.position, player.GetRotation());
     }
 
     public float GetHp()
     {
         return hp;
+    }
+
+    public void SetPlayer(int playerId)
+    {
+        this.playerId = playerId;
+        RequestSerialization();
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
+    }
+
+    public void GetPlayer()
+    {
+        this.player = VRCPlayerApi.GetPlayerById(playerId);
     }
 }
