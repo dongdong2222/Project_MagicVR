@@ -5,15 +5,17 @@ using VRC.Udon;
 using UdonSharp;
 using VRC.SDKBase;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class PlayerSetting : UdonSharpBehaviour
 {
     public GameObject PlayerPrefab;
-    public Player[] players;
+    public Player[] players = new Player[8];
+    [UdonSynced] private int playerNum;
+
     //Later StartGame으로 변경할 것 
     
     void Start()
     {
-        players = new Player[30];
         //GameObject clientStatObject = VRCInstantiate(PlayerPrefab);
         //Networking.SetOwner(Networking.LocalPlayer, clientStatObject);
         /*players[0] = GameObject.Find("Stat").GetComponent<Player>();
@@ -45,5 +47,14 @@ public class PlayerSetting : UdonSharpBehaviour
     void Update()
     {
         
+    }
+
+    public void SetPlayerNum(int num) {
+        playerNum = num;
+        RequestSerialization();
+    }
+
+    public int GetPlayerNum() {
+        return playerNum;
     }
 }
