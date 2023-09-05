@@ -8,13 +8,16 @@ public class UIForDebug : UdonSharpBehaviour
 {
     [SerializeField]
     private VehicleData vehicleData;
+    [SerializeField]
+    private GameDataTest gameData;
+
 
     [SerializeField]
     private Text value_isMaster;
     [SerializeField]
     private Text value_playerID;
     [SerializeField]
-    private Text value_isBlocked;
+    private Text value_winner;
 
     private VRCPlayerApi player;
     private void Start()
@@ -31,6 +34,6 @@ public class UIForDebug : UdonSharpBehaviour
     {
         value_isMaster.text = "" + player.isMaster;
         value_playerID.text = "" + player.playerId;
-        //value_isBlocked.text = "" + vehicleData.IsBlocked;
+        value_winner.text = "" + gameData.WinnerTeam;
     }
 }

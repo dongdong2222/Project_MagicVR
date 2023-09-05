@@ -39,6 +39,7 @@ public class GameDataTest : UdonSharpBehaviour
         get { return winnerTeam; } 
         set
         {
+            if (!Networking.IsOwner(Networking.LocalPlayer, gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject); }
             winnerTeam = value;
             RequestSerialization();
 
