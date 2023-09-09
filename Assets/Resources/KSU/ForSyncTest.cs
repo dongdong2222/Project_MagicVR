@@ -6,6 +6,7 @@ using VRC.Udon;
 
 public class ForSyncTest : UdonSharpBehaviour
 {
+    
     private VRCPlayerApi player;
     [SerializeField] GameObject child;
     void Start()

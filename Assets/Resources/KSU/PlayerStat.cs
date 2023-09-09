@@ -17,9 +17,25 @@ public class PlayerStat : UdonSharpBehaviour
         Variables for Player
     */
     public VRCPlayerApi player;
-    [UdonSynced] public int playerId;
+    [UdonSynced, FieldChangeCallback(nameof(playerId))] private int _playerId;
+    public int playerId
+    {
+        set
+        {
+            _playerId = value;
+            Debug.Log("Set" + _playerId); 
+            GetPlayer(value);
+            if(!player.IsOwner(gameObject)) 
+                Networking.SetOwner(player, gameObject);
+            Initialize();
+        }
+        get => _playerId;
+    }
     
-    [SerializeField] [UdonSynced] private float hp;
+    [SerializeField] [UdonSynced] 
+    private float hp = 0;
+    
+
     [SerializeField] private Text hpText;
     private float originHp = 100;
     [SerializeField] private float mp;
@@ -35,17 +51,22 @@ public class PlayerStat : UdonSharpBehaviour
     }
 
     public void Initialize() {
-        if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);};
+        //if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);};
+        Debug.Log("Init" + playerId);
         hp = originHp;
-        //SetOwner를 켰을때 한명만 분배되는
         RequestSerialization();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);};
-        if(Networking.LocalPlayer.playerId == playerId) hpText.text = hp.ToString();
+        Debug.Log("try1");
+        if(Networking.LocalPlayer.playerId == playerId) {
+            Debug.Log("try2");
+            //if(!Networking.LocalPlayer.IsOwner(gameObject)) { Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            hpText.text = hp.ToString(); 
+            Debug.Log("try3");
+        }
     }
 
     private void GetDamage(float damage) 
@@ -96,15 +117,15 @@ public class PlayerStat : UdonSharpBehaviour
         return hp;
     }
 
-    public void SetPlayer(int playerId)
+    public void SetPlayer(int value)
     {
-        this.playerId = playerId;
+        playerId = value;
         RequestSerialization();
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
+        //SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
     }
 
-    public void GetPlayer()
+    public void GetPlayer(int value)
     {
-        this.player = VRCPlayerApi.GetPlayerById(playerId);
+        player = VRCPlayerApi.GetPlayerById(value);
     }
 }
