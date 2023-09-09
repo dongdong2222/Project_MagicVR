@@ -150,7 +150,7 @@ MonoBehaviour:
     type: 3}
   playerManager: {fileID: 0}
   playerManagerTest: {fileID: 0}
-  pool: {fileID: 0}
+  pool: {fileID: 7870797123965544110}
 --- !u!114 &3516792764161929069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,18 +979,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.54
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.71
+      value: 1.142
       objectReference: {fileID: 0}
     - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6811791107140558991, guid: 0f86f6b839920874e8dedc38b2c9b00d,
         type: 3}

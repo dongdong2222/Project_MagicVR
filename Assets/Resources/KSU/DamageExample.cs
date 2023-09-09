@@ -19,13 +19,14 @@ public class DamageExample : UdonSharpBehaviour
         //Create Magic Object will be here 
     }
 
-    public override void OnPickupUseDown()
+    /*public override void OnPickupUseDown()
     {
         PlayerStat playerStat = FindStat(Networking.LocalPlayer);
         playerStat.MagicHit(defaultDamage);
+    }*/
 
-    }
     public void OnTriggerEnter(Collider collision) {
+        gameObject.transform.position = gameObject.transform.position + new Vector3(0,2,0);
         PlayerStat playerStat = FindStat(collision.gameObject);
         playerStat.MagicHit(defaultDamage);
 
@@ -43,7 +44,8 @@ public class DamageExample : UdonSharpBehaviour
                 testText.text = string.Concat(testText.text, playerManager.players[i].stat.GetHp());
         }
     }*/
-    private PlayerStat FindStat(VRCPlayerApi player) {
+
+    /*private PlayerStat FindStat(VRCPlayerApi player) {
         if(!Networking.LocalPlayer.IsOwner(GameObject.Find("PlayerManager"))) { Networking.SetOwner(Networking.LocalPlayer, GameObject.Find("PlayerManager"));}
         PlayerSetting playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerSetting>();
         for(int i=0; i<playerManager.players.Length; i++) {
@@ -52,22 +54,9 @@ public class DamageExample : UdonSharpBehaviour
             }
         }
         return null;
-    }
+    }*/
+
     private PlayerStat FindStat(GameObject collision) {
         return collision.GetComponent<Player>().stat;
-        /*PlayerSetting playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerSetting>();
-        VRCPlayerApi localPlayer = Networking.LocalPlayer;
-
-        for(int i=0; i<playerManager.players.Length; i++) {
-            if(playerManager.players[i].player == localPlayer) {
-                return playerManager.players[i].stat;
-            }
-        }*/
-
-        /*GameObject playerObject = collision;
-        if(IsOwner(localPlayer, playerObject) && playerObject.GetComponent<PlayerStat>() != null){// && playerObject.CompareTag("Player")) {
-            return playerObject.GetComponent<PlayerStat>();
-        }
-        else return null*/
     }
 }
