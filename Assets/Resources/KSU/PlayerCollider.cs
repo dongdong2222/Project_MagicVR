@@ -8,9 +8,18 @@ using UnityEngine.UI;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class PlayerCollider : UdonSharpBehaviour
 {
+    //collider 포지션 찍으면 이상하게 찍힘
     public VRCPlayerApi player;
-    [UdonSynced] public int playerId;
-    public Text test;
+    [UdonSynced, FieldChangeCallback(nameof(playerId))] private int _playerId;
+    public int playerId
+    {
+        set
+        {
+            _playerId = value; 
+            GetPlayer(value);
+        }
+        get => _playerId;
+    }
 
     void Start()
     {
@@ -24,23 +33,24 @@ public class PlayerCollider : UdonSharpBehaviour
 
     public void SetCollider() 
     {
-        if(player != null) {
+        if(player != null && Networking.LocalPlayer == player && Networking.LocalPlayer.IsOwner(gameObject)) {
             Vector3 position = player.GetPosition();
             gameObject.GetComponent<CapsuleCollider>().center = new Vector3(position.x, player.GetBonePosition(HumanBodyBones.Head).y/2.0f * 1.2f, position.z);
             gameObject.GetComponent<CapsuleCollider>().height = player.GetBonePosition(HumanBodyBones.Head).y * 1.2f;
-            test.text = gameObject.GetComponent<CapsuleCollider>().bounds.center.ToString();
+            Debug.Log(gameObject.GetComponent<CapsuleCollider>().bounds.center.ToString());
         }
     }
 
-    public void SetPlayer(int playerId)
+    public void SetPlayer(int value)
     {
-        this.playerId = playerId;
+        playerId = value;
         RequestSerialization();
-        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
+        //fieldChangeCallback에서 getplayer바꾸는걸로 수정
+        //SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(GetPlayer));
     }
 
-    public void GetPlayer()
+    public void GetPlayer(int value)
     {
-        this.player = VRCPlayerApi.GetPlayerById(playerId);
+        player = VRCPlayerApi.GetPlayerById(value);
     }
 }

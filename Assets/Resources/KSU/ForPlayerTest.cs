@@ -16,7 +16,6 @@ public class ForPlayerTest : UdonSharpBehaviour
     public GameObject playerManagerTest;
     public VRCObjectPool pool;
     
-    //게임 시작시 한번 실행되어야 함
     public override void OnPickupUseDown()
     {
         MakePlayers();//SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, nameof(MakePlayers));
@@ -28,11 +27,12 @@ public class ForPlayerTest : UdonSharpBehaviour
         VRCPlayerApi[] players = new VRCPlayerApi[30];
         VRCPlayerApi.GetPlayers(players);
         
-        int i = 0;
-        Networking.SetOwner(Networking.LocalPlayer, GameObject.Find("PlayerManager"));
-        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerSetting>();
         
-        playerManager.SetPlayerNum(players.Length);
+
+        int i = 0;
+        Networking.SetOwner(Networking.LocalPlayer, gameObject);
+        playerManager = gameObject.GetComponent<PlayerSetting>();
+        
         //플레이어 수 만큼 순회
         foreach(VRCPlayerApi player in players) {
             if(player == null) {
@@ -40,8 +40,8 @@ public class ForPlayerTest : UdonSharpBehaviour
             }
             else {
                 //playerObject 스폰
-                GameObject clientPlayerObject = pool.TryToSpawn();//VRCInstantiate(playerPrefab);
-                Networking.SetOwner(Networking.LocalPlayer, clientPlayerObject);
+                pool.TryToSpawn();
+                Networking.SetOwner(Networking.LocalPlayer, playerManager.players[i].gameObject);
                 
                 /*if (!Networking.LocalPlayer.IsOwner(GameObject.Find("PlayerManager"))) { Networking.SetOwner(Networking.LocalPlayer, GameObject.Find("PlayerManager")); }
                 if (!Networking.LocalPlayer.IsOwner(clientPlayerObject)) { Networking.SetOwner(Networking.LocalPlayer, clientPlayerObject); }*/
@@ -50,11 +50,8 @@ public class ForPlayerTest : UdonSharpBehaviour
                 playerManager.players[i].playerCollider.SetPlayer(player.playerId);
                 //stat 초기화, player 연결
                 playerManager.players[i].stat.SetPlayer(player.playerId);
-                playerManager.players[i].stat.Initialize();
-
             }
             i++;
-            i %= 30;
         }
     }
 
